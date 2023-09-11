@@ -193,7 +193,6 @@ function getUsersInPeriodsOfDay($link) {
 //                echo ($currentTimePointer < $logoutTimeSec) ? '->' : '  ';
 //                echo '$logoutTimeSec =      ' . $logoutTimeSec . ' ' . date("Y-m-d h:i:s", $logoutTimeSec) . PHP_EOL;
 //                echo PHP_EOL;
-
             }
 //            print_r($logInfo);
 //            print_r($maxUsersAtTimeSlot);
@@ -229,15 +228,14 @@ function viewMaxPeriod($maxUsersAtTimeSlot, $max) {
             if ($startGoadPeriod == 0) {
                 $startGoadPeriod = $datestamp;
                 $currentGoalElem = $startGoadPeriod + 60*10;
-                echo date("Y-m-d h:i:s", $datestamp) . ' - ';
+                echo date("Y-m-d h:i:s", $datestamp+1) . ' - ';
             } else {
                 $currentGoalElem = $datestamp;
             }
         } elseif ($startGoadPeriod) {
-            echo date("Y-m-d h:i:s", $currentGoalElem) . PHP_EOL;
+            echo date("Y-m-d h:i:s", $currentGoalElem+1) . PHP_EOL;
             $startGoadPeriod = 0;
             $currentGoalElem = 0;
         }
     }
-    echo date("Y-m-d h:i:s", $currentGoalElem);
 }
