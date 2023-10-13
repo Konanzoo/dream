@@ -1,6 +1,6 @@
 <?php
 
-define("DB_NAME", 'test_db');
+define('DB_NAME', 'test_db');
 define('GOAL_DAY', 3);
 define('AMOUNT_EVENTS_GENERAATE', 100);
 
@@ -157,7 +157,7 @@ function getGoalDay() {
 }
 
 function getUsersInPeriodsOfDay($link) {
-    $sql = "select * from Session where login_time > CURRENT_TIMESTAMP - INTERVAL " . getGoalDay() . " DAY AND ((logout_time < CURRENT_TIMESTAMP - INTERVAL " . (getGoalDay()-1  ) . " DAY) OR logout_time is null);";
+    $sql = "select * from Session where login_time > CURRENT_TIMESTAMP - INTERVAL " . getGoalDay() . " DAY AND ((logout_time < CURRENT_TIMESTAMP - INTERVAL " . (getGoalDay()-1  ) . "   DAY) OR logout_time is null);";
 
     $result = mysqli_query($link, $sql);
     $maxUsersAtTimeSlot = [];
